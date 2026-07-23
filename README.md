@@ -2,14 +2,22 @@
 
 > Atomically swap two filesystem paths
 
-A Pear standalone-binary CLI that exchanges a `<source>` path with a `<target>` path. Swaps are atomic on macOS and Linux, and go via a temporary path on Windows.
+A [Pear](https://install.pears.com) standalone-binary CLI that exchanges a `<source>` path with a `<target>` path. Swaps are atomic on macOS and Linux, and go via a temporary path on Windows.
 
 Evergreen command via peer-to-peer over-the-air-updates.
 
 ## Install
 
+With [Pear CLI](https://install.pears.com):
+
 ```sh
 pear install pear://swapb14acos6iasoz5jg8bj46zt8emdk9rmm4n9j18mtjmwbqmwo
+```
+
+Via `npx`:
+
+```sh
+npx pear-install pear://swapb14acos6iasoz5jg8bj46zt8emdk9rmm4n9j18mtjmwbqmwo
 ```
 
 ## Usage
