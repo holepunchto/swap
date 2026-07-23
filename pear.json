@@ -1,0 +1,10 @@
+{
+  "multisig": {
+    "publicKeys": [
+      "9fg3sxfasu7qgs14fwpk4e545hst8oikw1wrwt7663rc6gr5dx9o",
+      "jzgqy9n45f9w1t6p3gffnoroakqe8htc7mpstqsew4s638sogx8y"
+    ],
+    "namespace": "holepunchto/swap$f5wrxe73qhxu5awdzuzmewebc4qsd6ao1ddhgfq7hk3beiu5q5xo",
+    "quorum": 1
+  }
+}
