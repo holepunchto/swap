@@ -11,7 +11,7 @@ const ReadyResource = require('ready-resource')
 module.exports = class App extends ReadyResource {
   static swap(source, target) {
     if (isWindows) {
-      nonAtomicSwap()
+      nonAtomicSwap(source, target)
       return
     }
     fsx.swapSync(source, target)
