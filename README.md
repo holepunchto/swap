@@ -20,13 +20,13 @@ swap [flags] <source> <target>
 
 Swaps the `<source>` path with the `<target>` path. Atomic on macOS and Linux; via a temporary path on Windows.
 
-| Flag                        | Description                                     |
-| --------------------------- | ----------------------------------------------- |
-| `--update-window`, `-w`     | wait for update (ms, default 30000)             |
-| `--update-cooldown`, `-c`   | min. time between update checks (ms, default 1200000) |
-| `--no-updates`, `-n`        | disable updates on this run                     |
-| `--version`, `-v`           | version                                         |
-| `--help`, `-h`              | show help                                       |
+| Flag                      | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| `--update-window`, `-w`   | wait for update (ms, default 30000)                   |
+| `--update-cooldown`, `-c` | min. time between update checks (ms, default 1200000) |
+| `--no-updates`, `-n`      | disable updates on this run                           |
+| `--version`, `-v`         | version                                               |
+| `--help`, `-h`            | show help                                             |
 
 ## Over-the-air Updates
 

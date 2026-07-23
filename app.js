@@ -2,6 +2,7 @@ const fs = require('bare-fs')
 const fsx = require('fs-native-extensions')
 const daemon = require('bare-daemon')
 const path = require('bare-path')
+const { isWindows } = require('which-runtime')
 const Corestore = require('corestore')
 const Hyperswarm = require('hyperswarm')
 const PearRuntime = require('pear-runtime')
@@ -9,6 +10,10 @@ const ReadyResource = require('ready-resource')
 
 module.exports = class App extends ReadyResource {
   static swap(source, target) {
+    if (isWindows) {
+      nonAtomicSwap()
+      return
+    }
     fsx.swapSync(source, target)
   }
 
@@ -136,5 +141,28 @@ module.exports = class App extends ReadyResource {
   async exit(code = 0) {
     Bare.exitCode = code
     await this.close()
+  }
+}
+
+// nonAtomicSwap needed until addressed in fs-native-extensions
+// https://github.com/holepunchto/fs-native-extensions/blob/945789b34d638deb6b36ce4712321a27ab68b623/test/swap.js#L8
+function nonAtomicSwap(source, target) {
+  fs.statSync(source)
+  fs.statSync(target)
+
+  const stash = path.join(
+    path.dirname(source),
+    '.' + path.basename(source) + '.swap-' + Date.now().toString(36)
+  )
+
+  fs.renameSync(source, stash)
+  try {
+    fs.renameSync(target, source)
+    fs.renameSync(stash, target)
+  } catch (err) {
+    try {
+      fs.renameSync(stash, source)
+    } catch {}
+    throw err
   }
 }

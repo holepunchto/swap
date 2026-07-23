@@ -6,7 +6,7 @@
   "bin": "bin.mjs",
   "upgrade": "pear://swapb14acos6iasoz5jg8bj46zt8emdk9rmm4n9j18mtjmwbqmwo",
   "scripts": {
-    "format": "prettier . --write",
+    "format": "prettier . --write && lunte --fix",
     "test": "brittle-bare test/index.js",
     "lint": "prettier . --check && lunte",
     "start": "bare bin.mjs --no-updates",
